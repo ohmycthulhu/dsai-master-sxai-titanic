@@ -1,0 +1,15 @@
+.container {
+  padding: 1rem 1rem 10rem;
+  max-width: 80rem;
+  margin: auto;
+  min-height: 100vh;
+  background: aliceblue;
+}
+
+.person-info-container {
+  margin-bottom: 2rem;
+}
+
+.statistics-container {
+  margin-top: 2rem;
+}
