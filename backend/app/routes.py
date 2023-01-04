@@ -30,7 +30,7 @@ def entities():
 def entity_info(entity_id):
     entity_id = int(entity_id)
     row = find_row(entity_id)
-    prediction = 0 # get_class(row)
+    prediction = get_class(row)
 
     if row['raw']['Covered']:
         prediction_correct, inconsistencies = ontology.verify(row['raw'], prediction)
