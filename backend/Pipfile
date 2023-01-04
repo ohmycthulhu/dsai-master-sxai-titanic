@@ -11,6 +11,7 @@ flask = "*"
 Flask-Caching = "*"
 flask-cors = "*"
 sklearn = "*"
+owlready2 = "*"
 joblib = "*"
 
 [requires]

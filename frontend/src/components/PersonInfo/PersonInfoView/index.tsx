@@ -3,6 +3,7 @@ import * as R from 'ramda';
 
 import { PersonInfoResponse, Survival } from '../../../types/api.types';
 import './index.css';
+import PredictionInfo from './PredictionInfo';
 
 type PersonInfoViewProps = {
   person: PersonInfoResponse,
@@ -32,6 +33,9 @@ export default function PersonInfoView({ person }: PersonInfoViewProps) {
           Prediction: {formatSurvival(person.prediction)}{' '}
           (actual {formatSurvival(person.row.raw.Survived)})
         </p>
+      </div>
+      <div className='person-info-view-prediction'>
+        <PredictionInfo person={person} />
       </div>
       <ul>
         {fields.map(([field, value]) => (

@@ -38,11 +38,19 @@ export type PersonsListResponse = {
   data: PersonData[]
 }
 
+type PredictionInfo = {
+  prediction_correct: true | null,
+  inconsistencies: null
+} | {
+  prediction_correct: false,
+  inconsistencies: string[]
+}
+
 export type PersonInfoResponse = {
   row: PersonData,
   prediction: Survival,
   id: PassengerId,
-}
+} & PredictionInfo
 
 export type StatisticsResponse = {
   rule_coverage: number,

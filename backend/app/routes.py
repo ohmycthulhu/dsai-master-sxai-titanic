@@ -1,5 +1,6 @@
 from app import server
 from app.classification import Classificator
+from app.ontology import Ontology
 from app.cache import cache
 from flask import render_template, jsonify
 import json
@@ -10,6 +11,7 @@ with open('passengers.json') as file:
 
 
 classificator = Classificator('model.joblib')
+ontology = Ontology('ontology.owl')
 
 
 @server.route('/')
@@ -28,11 +30,19 @@ def entities():
 def entity_info(entity_id):
     entity_id = int(entity_id)
     row = find_row(entity_id)
+    prediction = 0 # get_class(row)
+
+    if row['raw']['Covered']:
+        prediction_correct, inconsistencies = ontology.verify(row['raw'], prediction)
+    else:
+        prediction_correct, inconsistencies = None, []
 
     return jsonify({
         'id': entity_id,
         'row': row,
-        'prediction': get_class(row),
+        'prediction': prediction,
+        'prediction_correct': prediction_correct,
+        'inconsistencies': inconsistencies,
     })
 
 
