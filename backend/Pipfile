@@ -10,9 +10,10 @@ pytest = "*"
 flask = "*"
 Flask-Caching = "*"
 flask-cors = "*"
-sklearn = "*"
+scikit-learn = "*"
+pandas = "*"
 owlready2 = "*"
 joblib = "*"
 
 [requires]
-python_version = "3.9"
+python_version = ">=3.6"
